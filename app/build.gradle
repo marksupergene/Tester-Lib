@@ -31,6 +31,20 @@ android {
     }
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.debug
+                groupId = 'com.github.jitpack'
+                artifactId = 'android-example'
+                version = '0.0.5'
+            }
+        }
+    }
+}
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.6.0'
